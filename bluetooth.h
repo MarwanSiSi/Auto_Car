@@ -6,10 +6,10 @@
 #include "pico/stdlib.h"
 
 // Define UART configuration
-#define BLUETOOTH_UART uart0
+#define BLUETOOTH_UART uart1
 #define BLUETOOTH_BAUD_RATE 9600
-#define BLUETOOTH_TX_PIN 0
-#define BLUETOOTH_RX_PIN 1
+#define BLUETOOTH_TX_PIN 4
+#define BLUETOOTH_RX_PIN 5
 
 // Command definitions
 #define CMD_FORWARD 'f'

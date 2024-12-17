@@ -2,7 +2,7 @@
 
 #define FR_MOTOR_PIN1 10
 #define FR_MOTOR_PIN2 11
-#define FR_MOTOR_PWM_PIN 12
+#define FR_MOTOR_PWM_PIN 12 
 
 
 // function declarations

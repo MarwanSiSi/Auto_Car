@@ -42,7 +42,7 @@ pico_set_program_version(Auto_Car "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(Auto_Car 0)
-pico_enable_stdio_usb(Auto_Car 1)
+pico_enable_stdio_usb(Auto_Car 0)
 
 # Add the standard library to the build
 target_link_libraries(Auto_Car pico_stdlib hardware_adc hardware_pwm hardware_uart hardware_irq)
