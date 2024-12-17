@@ -9,7 +9,6 @@
 #include "br_motor.h"
 #include "speed.h"
 #include "led.h"
-#include "speed_led.h"
 #include "buzzer.h"
 #include "ultrasonicFront.h"
 #include "ultrasonicBehind.h"
@@ -69,27 +68,18 @@ int main() {
                         GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL,
                         true);
 
-    // Remove the separate callback registration since we're using the global one
+    // Register callback for speed sensor
     gpio_set_irq_enabled(SPEED_SENSOR_PORT_PIN1, GPIO_IRQ_EDGE_RISE, true);
 
     // Variables for buzzer timing
     uint32_t last_beep_time = 0;
     uint32_t current_time;
-    
+
     while(true) {
         // Check for Bluetooth commands
         while(bluetooth_has_data()) {
             char cmd = bluetooth_read_char();
             process_bluetooth_command(cmd);
-            
-            // // If it's a sensor data request, send the data
-            // if(cmd == CMD_GET_SENSORS) {
-            //     float distanceFront = get_distance_front_cm();
-            //     float distanceBehind = get_distance_behind_cm();
-            //     int readingLight = get_light_reading();
-            //     int rpm_fast = calculate_motor_speed();
-            //     bluetooth_send_sensor_data(rpm_fast);
-            // }
         }
 
         // Regular sensor readings and processing
@@ -141,17 +131,17 @@ int main() {
 
         // Light sensor logic
         int readingLight = get_light_reading();
-        if(readingLight > 1700) {
+        if(readingLight > 1900) {
             led_on();
         } else {
             led_off();
         }
 
-        // Print speed
+        // // Print speed
         int rpm_fast = calculate_motor_speed();
         if(rpm_fast > 0)
              bluetooth_send_sensor_data(rpm_fast);  // Send it every loop iteration
         
-        sleep_ms(500); // Small delay to prevent tight polling
+        sleep_ms(10); // Small delay to prevent tight polling
     }
 }

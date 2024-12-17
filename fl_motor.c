@@ -1,5 +1,5 @@
 #include "fl_motor.h"
-#include "pico/stdlib.h"    
+#include "pico/stdlib.h"
 #include "hardware/pwm.h"
 #include "hardware/gpio.h"
 
@@ -17,7 +17,7 @@ void motor_init_front_left(){
     pwm_set_wrap(slice_num, 255); // speed levels
     pwm_set_clkdiv(slice_num, 4.0f);
 
-    pwm_set_enabled(slice_num, true); // enaFLe pwm for the slice
+    pwm_set_enabled(slice_num, true); // enable pwm for the slice
 }
 
 void motor_control_front_left(int speed,bool forward){
@@ -39,7 +39,7 @@ void motor_control_front_left(int speed,bool forward){
         gpio_put(FL_MOTOR_PIN2, 0);
     }
 
-    // Set the PWM duty cycle (range is from 0 to 255)
+    // Set the PWM duty cycle (range is FLom 0 to 255)
     pwm_set_gpio_level(FL_MOTOR_PWM_PIN, speed);  // Channel A controls the motor
     
 }

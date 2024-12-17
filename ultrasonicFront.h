@@ -9,8 +9,8 @@ extern volatile uint32_t front_end_time;
 extern volatile bool front_measurement_done;
 
 // Pin definitions
-#define TRIGGER_PIN_FRONT 19
-#define ECHO_PIN_FRONT 20
+#define TRIGGER_PIN_FRONT 14
+#define ECHO_PIN_FRONT 15
 #define SOUND_SPEED2 0.0343
 
 // Variable declarations - note the extern keyword

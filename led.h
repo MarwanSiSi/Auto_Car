@@ -1,4 +1,4 @@
-#define LED_PIN 22
+#define LED_PIN 21
 
 void init_led();
 void led_on();

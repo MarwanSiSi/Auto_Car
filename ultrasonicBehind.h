@@ -8,8 +8,8 @@ extern volatile uint32_t behind_end_time;
 extern volatile bool behind_measurement_done;
 
 // Pin definitions
-#define TRIGGER_PIN_BEHIND 14
-#define ECHO_PIN_BEHIND 15
+#define TRIGGER_PIN_BEHIND 19
+#define ECHO_PIN_BEHIND 20
 #define SOUND_SPEED1 0.0343
 
 // Variable declarations

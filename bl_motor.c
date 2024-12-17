@@ -4,11 +4,11 @@
 #include "hardware/gpio.h"
 
 void motor_init_back_left(void) {
-    gpio_init(DIRECTION_PIN_1);
-    gpio_set_dir(DIRECTION_PIN_1, GPIO_OUT);
+    gpio_init(DIRECTION_PIN_3);
+    gpio_set_dir(DIRECTION_PIN_3, GPIO_OUT);
 
-    gpio_init(DIRECTION_PIN_2);
-    gpio_set_dir(DIRECTION_PIN_2, GPIO_OUT);
+    gpio_init(DIRECTION_PIN_4);
+    gpio_set_dir(DIRECTION_PIN_4, GPIO_OUT);
     
     gpio_set_function(PWM_PIN_BL, GPIO_FUNC_PWM);
 
@@ -32,14 +32,14 @@ void motor_control_back_left(uint8_t speed, bool forward) {
     }
 
     if(forward){
-        gpio_put(DIRECTION_PIN_1, 0); 
-        gpio_put(DIRECTION_PIN_2, 1);
+        gpio_put(DIRECTION_PIN_3, 0); 
+        gpio_put(DIRECTION_PIN_4, 1);
     }else{
-        gpio_put(DIRECTION_PIN_1, 1);
-        gpio_put(DIRECTION_PIN_2, 0);
+        gpio_put(DIRECTION_PIN_3, 1);
+        gpio_put(DIRECTION_PIN_4, 0);
     }
 
-    // Set the PWM duty cycle (range is BRom 0 to 255)
+    // Set the PWM duty cycle (range is BLom 0 to 255)
     pwm_set_gpio_level(PWM_PIN_BL, speed);  // Channel A controls the motor
     
 }

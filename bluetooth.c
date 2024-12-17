@@ -58,20 +58,19 @@ void process_bluetooth_command(char cmd) {
             
         case CMD_LEFT:
             // Left side motors slow/stopped
-            motor_control_front_left(0, false);    // Front left stopped
-            motor_control_back_left(0, false);     // Back left stopped
-            // Right side motors full speed
-            motor_control_front_right(255, false); // Front right full speed
-            motor_control_back_right(255, false);  // Back right full speed
+            motor_control_front_right(0, false);  
+            motor_control_back_right(0, false);               // Right side motors full speed
+            motor_control_front_left(255, false); 
+            motor_control_back_left(255, false);  
             break;
             
         case CMD_RIGHT:
             // Right side motors slow/stopped
-            motor_control_front_right(0, false);   // Front right stopped
-            motor_control_back_right(0, false);    // Back right stopped
+            motor_control_front_left(0, false);  
+            motor_control_back_left(0, false);   
             // Left side motors full speed
-            motor_control_front_left(255, false);  // Front left full speed
-            motor_control_back_left(255, false);   // Back left full speed
+            motor_control_front_right(255, false);  
+            motor_control_back_right(255, false);  
             break;
             
         case CMD_STOP:

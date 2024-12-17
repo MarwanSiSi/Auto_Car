@@ -4,11 +4,11 @@
 #include "hardware/gpio.h"
 
 void motor_init_back_right(void) {
-    gpio_init(DIRECTION_PIN_3);
-    gpio_set_dir(DIRECTION_PIN_3, GPIO_OUT);
+    gpio_init(DIRECTION_PIN_1);
+    gpio_set_dir(DIRECTION_PIN_1, GPIO_OUT);
 
-    gpio_init(DIRECTION_PIN_4);
-    gpio_set_dir(DIRECTION_PIN_4, GPIO_OUT);
+    gpio_init(DIRECTION_PIN_2);
+    gpio_set_dir(DIRECTION_PIN_2, GPIO_OUT);
     
     gpio_set_function(PWM_PIN_BR, GPIO_FUNC_PWM);
 
@@ -17,7 +17,7 @@ void motor_init_back_right(void) {
     pwm_set_wrap(slice_num, 255); // speed levels
     pwm_set_clkdiv(slice_num, 4.0f);
 
-    pwm_set_enabled(slice_num, true); // enable pwm for the slice
+    pwm_set_enabled(slice_num, true); // enaBRe pwm for the slice
 }
 
 void motor_control_back_right(uint8_t speed, bool forward) {
@@ -32,11 +32,11 @@ void motor_control_back_right(uint8_t speed, bool forward) {
     }
 
     if(forward){
-        gpio_put(DIRECTION_PIN_3, 0); 
-        gpio_put(DIRECTION_PIN_4, 1);
+        gpio_put(DIRECTION_PIN_1, 0); 
+        gpio_put(DIRECTION_PIN_2, 1);
     }else{
-        gpio_put(DIRECTION_PIN_3, 1);
-        gpio_put(DIRECTION_PIN_4, 0);
+        gpio_put(DIRECTION_PIN_1, 1);
+        gpio_put(DIRECTION_PIN_2, 0);
     }
 
     // Set the PWM duty cycle (range is BRom 0 to 255)

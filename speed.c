@@ -8,10 +8,6 @@ float motor_speed = 0.0f;      // Motor speed
 void init_speed_sensor() {
     gpio_init(SPEED_SENSOR_PORT_PIN1);
     gpio_set_dir(SPEED_SENSOR_PORT_PIN1, GPIO_IN);
-    
-    gpio_init(SPEED_SENSOR_PORT_PIN2);
-    gpio_set_dir(SPEED_SENSOR_PORT_PIN2, GPIO_OUT);
-    gpio_pull_up(SPEED_SENSOR_PORT_PIN2);
 }
 
 

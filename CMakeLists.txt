@@ -35,14 +35,14 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Auto_Car Auto_Car.c bluetooth.c ultrasonicBehind.c br_motor.c bl_motor.c ultrasonicFront.c light.c infrared.c fr_motor.c fl_motor.c speed.c led.c speed_led.c
+add_executable(Auto_Car Auto_Car.c bluetooth.c ultrasonicBehind.c br_motor.c bl_motor.c ultrasonicFront.c light.c fr_motor.c fl_motor.c speed.c led.c 
 buzzer.c  )
 pico_set_program_name(Auto_Car "Auto_Car")
 pico_set_program_version(Auto_Car "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(Auto_Car 0)
-pico_enable_stdio_usb(Auto_Car 0)
+pico_enable_stdio_usb(Auto_Car 1)
 
 # Add the standard library to the build
 target_link_libraries(Auto_Car pico_stdlib hardware_adc hardware_pwm hardware_uart hardware_irq)
